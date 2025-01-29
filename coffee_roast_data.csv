@@ -1,0 +1,4 @@
+Roast Type,Min Temp (°F),Max Temp (°F),Min Time (min),Max Time (min),Flavor Notes,Profile Description,Image Path
+Light,356,401,8,10,"Citrus, Floral, Herbal","Bright, acidic, with pronounced origin characteristics",light.jpg
+Medium,410,428,10,12,"Caramel, Nuts, Chocolate",Balanced sweetness with caramel notes,medium.jpg
+Dark,437,446,12,13,"Dark Chocolate, Smoky, Spice","Bold, bittersweet with smoky notes",dark.jpg

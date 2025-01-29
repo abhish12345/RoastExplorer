@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Roast Selector</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f1ea;
+        text-align: center;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #6f4e37;
+        color: white;
+        cursor: pointer;
+      }
+      .details {
+        margin-top: 20px;
+      }
+      img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Select Your Coffee Roast</h2>
+      <form method="post">
+        <select name="roast_type">
+          <option value="Light">Light Roast</option>
+          <option value="Medium">Medium Roast</option>
+          <option value="Dark">Dark Roast</option>
+        </select>
+        <button type="submit">Get Details</button>
+      </form>
+
+      {% if roast %}
+      <div class="details">
+        <h3>{{ roast }} Roast</h3>
+        <p>
+          <strong>Temperature:</strong> {{ details['Min Temp (°F)'] }} - {{
+          details['Max Temp (°F)'] }}°F
+        </p>
+        <p>
+          <strong>Duration:</strong> {{ details['Min Time (min)'] }} - {{
+          details['Max Time (min)'] }} minutes
+        </p>
+        <p><strong>Flavor Notes:</strong> {{ details['Flavor Notes'] }}</p>
+        <p><strong>Profile:</strong> {{ details['Profile Description'] }}</p>
+        <img src="{{ url_for('static', filename='images/' + details['Image Path']) }}" 
+     alt="{{ roast }} Roast"
+     onerror="this.onerror=null; this.src='{{ url_for('static', filename='images/default.jpg') }}';">
+
+
+      {% endif %}
+    </div>
+  </body>
+</html>
