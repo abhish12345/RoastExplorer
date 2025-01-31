@@ -28,6 +28,17 @@ def index():
 
     return render_template('index.html', roast=None, details=None)
 
+# creating a new route for simply extracting the details
+@app.route('/getdetails', methods=['GET'])
+def get_details():
+    roast_type = request.args.get('roast_type')
+    if roast_type in roast_data:
+        details = roast_data[roast_type]
+        return jsonify({"roast_type": roast_type, "details": details})
+    return jsonify({"error": "Roast type not found"}), 404
+
+
+
 
 
 
